@@ -1,6 +1,8 @@
 # Localization-Aware Deep Medical Image Classification via Segmentation Driven Gradient-based Attention
 The repository contains a method that calculates bounding boxes in real-time during segmentation and integrates Grad-CAM to enhance the loss function for deep classification models.
 
+![Image](https://github.com/user-attachments/assets/93bfd5a1-b525-49c0-9641-a6d620d5be7a)
+
 ## Data preparation
 Download and extract the NIH chest x-ray data from https://nihcc.app.box.com/v/ChestXray-NIHCC/folder/36938765345. All compressed packages of images can be downloaded in batch through the .py script contained in the "images" folder. Structure after downloading and extracting all files of images for NIH data:
 ```

@@ -1,8 +1,26 @@
 # Localization-Aware Deep Medical Image Classification via Segmentation Driven Gradient-based Attention
 The repository contains a method that calculates bounding boxes in real-time during segmentation and integrates Grad-CAM to enhance the loss function for deep classification models.
 
+![Image](https://github.com/user-attachments/assets/93bfd5a1-b525-49c0-9641-a6d620d5be7a)
+
+<<<<<<< HEAD
+## Data Source
+- **NIH ChestX-ray14 Dataset**  
+  Provided by the National Institutes of Health Clinical Center.  
+  Download link: [https://nihcc.app.box.com/v/ChestXray-NIHCC](https://nihcc.app.box.com/v/ChestXray-NIHCC)
+
+- **Ottawa Dataset**  
+  Collected in collaboration with The Ottawa Hospital in Canada.  
+  Due to privacy restrictions and data sharing agreements, this dataset is not publicly available.
+
+- **Chest X-ray Masks and Labels (Kaggle)**  
+  This dataset was obtained from Kaggle: [Chest X-ray Masks and Labels](https://www.kaggle.com/datasets/nikhilpandey360/chest-xray-masks-and-labels).  
+  It contains chest X-ray images with corresponding segmentation masks and disease labels. The dataset is publicly available for research use.  The UNet model used in this work was trained using this dataset for lung region segmentation.
+
+=======
+>>>>>>> 9050b5730991ad57364ce40263c1e480701da119
 ## Data preparation
-Download and extract the NIH chest x-ray data from https://nihcc.app.box.com/v/ChestXray-NIHCC/folder/36938765345. All compressed packages of images can be downloaded in batch through the .py script contained in the "images" folder. Structure after downloading and extracting all files of images for NIH data:
+For NIH dataset, all compressed packages of images can be downloaded in batch through the .py script contained in the "images" folder. Structure after downloading and extracting all files of images for NIH data:
 ```
 /data/NIH/
   images_01/
@@ -32,7 +50,7 @@ Data structure required for model training and evaluation (after running data_pr
     class2/
       img6.png
 ```
-The trained U-Net model is located in 'model' folder
+The trained U-Net model is located in the [`model` folder](https://www.dropbox.com/scl/fi/62lru7m55igysvrh7mw87/unet_model.pt?rlkey=vasksxm5i0dns18x2uul7h9yb&st=zek3z5xl&dl=0). Structure of training data:
 ```
 /data/Ottawa_masks_512/
   img1.png
@@ -61,7 +79,15 @@ python model_loss_attent.py
 --thresh: Specify a threshold value betweeen 0 to 1
 --isAdaptive: A boolean flag indicates whether the value of lambda is adaptive, e.g. 0.9
 ```
-This should give a .txt file (The file name will be generated based on the values of lambda and threshold) with performances on validation and testing sets respectively.
+Upon completion of the training and evaluation process, the following files are generated:
+
+- **Model checkpoint (`.pt` file):**  
+  The trained model is saved with a filename that encodes the hyperparameters `lambda` and `threshold` used during training.
+
+- **Performance log (`.txt` file):**  
+  This file contains detailed metrics on the model’s performance evaluated on the validation and test datasets. The filename similarly reflects the corresponding `lambda` and `threshold` values.
+
+For reference, a sample performance log can be found in the [`scripts/results/`](scripts/results) directory.
 
 __Examples__
 
@@ -93,7 +119,5 @@ python model_loss_attent.py \
 --thresh 0.7
 ```
 
-### Note
 
-Ottawa dataset is undisclosed;
-To make sure the U-Net model has been trained and in folder 'model/unet_model.pt'.
+

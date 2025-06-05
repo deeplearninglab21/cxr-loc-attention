@@ -3,7 +3,6 @@ The repository contains a method that calculates bounding boxes in real-time dur
 
 ![Image](https://github.com/user-attachments/assets/93bfd5a1-b525-49c0-9641-a6d620d5be7a)
 
-<<<<<<< HEAD
 ## Data Source
 - **NIH ChestX-ray14 Dataset**  
   Provided by the National Institutes of Health Clinical Center.  
@@ -17,8 +16,6 @@ The repository contains a method that calculates bounding boxes in real-time dur
   This dataset was obtained from Kaggle: [Chest X-ray Masks and Labels](https://www.kaggle.com/datasets/nikhilpandey360/chest-xray-masks-and-labels).  
   It contains chest X-ray images with corresponding segmentation masks and disease labels. The dataset is publicly available for research use.  The UNet model used in this work was trained using this dataset for lung region segmentation.
 
-=======
->>>>>>> 9050b5730991ad57364ce40263c1e480701da119
 ## Data preparation
 For NIH dataset, all compressed packages of images can be downloaded in batch through the .py script contained in the "images" folder. Structure after downloading and extracting all files of images for NIH data:
 ```

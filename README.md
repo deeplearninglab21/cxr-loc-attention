@@ -934,6 +934,6 @@ python model_loss_attent.py \
 </tr>
 </table>
 
-For the full version of the results, please refer to the Appendix in the [`docs`](./docs) folder.
+For the full version of the results, please refer to the file DM746-Appendix.pdf.
 
 

@@ -47,8 +47,7 @@ Data structure required for model training and evaluation (after running data_pr
     class2/
       img6.png
 ```
-The [`model` folder](./model) contains a text file with the download link to the pretrained U-Net model.  
-Structure of training data:
+The [`model`](./model) folder contains a text file with the download link to the pre-trained U-Net model. Structure of training data:
 ```
 /data/Ottawa_masks_512/
   img1.png
@@ -93,6 +92,18 @@ To train a PVT model with cross entropy loss, 3 classes:
 ```
 python pvt_loss_ce.py --path ../data/nofind_effusion_pneumothorax/ --nclass 3
 ```
+To train a PVT model with proposed loss, dataset is NIH, binary classification (No Finding and Effusion), gpu is 0, lambda is 0.25, threshold is 0.7, this repository provides a trained PVT model (please refer to the link provided in the text file within [`model`](./model) folder) for below command:
+```
+python model_loss_attent.py \
+--dataset nih \
+--path ../data/NIH/nofind_effusion/ \
+--backbone pvt \
+--task ne \
+--gpu 0 \
+--lamda 0.25 \
+--thresh 0.7
+
+```
 To train a VGG16 model with proposed loss, dataset is Ottawa, multi-class (No Finding, Effusion, Pneumothorax, and Subcutaneous emphysema), gpu is 0, lambda is adaptive, threshold is 0.9:
 ```
 python model_loss_attent.py \
@@ -105,17 +116,18 @@ python model_loss_attent.py \
 --thresh 0.9
 
 ```
-To train a ResNet50 model with proposed loss, dataset is NIH, binary classes (No Finding vs Effusion), gpu is 1, lambda is 0.25, threshold is 0.7:
+To train a ResNet50 model with proposed loss, dataset is NIH, binary classes (No Finding vs Pneumothorax), gpu is 1, lambda is 0.25, threshold is 0.7:
 ```
 python model_loss_attent.py \
 --dataset nih \
---path ../data/NIH/nofind_effusion/ \
+--path ../data/NIH/nofind_pneumothorax/ \
 --backbone resnet \
---task ne \
+--task np \
 --gpu 1 \
 --lamda 0.25 \
 --thresh 0.7
 ```
+
 ## Results
 ##### Effusion vs No Finding (NIH dataset)
 <table class="dataintable">
@@ -922,6 +934,6 @@ python model_loss_attent.py \
 </tr>
 </table>
 
-For the full version of the results, please refer to the Appendix in the docs folder.
+For the full version of the results, please refer to the Appendix in the [`docs`](./docs) folder.
 
 
